@@ -27,7 +27,7 @@ body {
 
 .active-player-bg {
   background-color: #eFeDeD;
-  border: 1px sold #9F9D9D;
+  /* border: .1rem solid #9F9D9D; */
 }
 
 .players {
@@ -55,7 +55,7 @@ body {
   margin: 0;
   font-size: 4rem;
   font-weight: 200;
-  color: #a1a1a1;
+  color: #919191;
   text-transform: uppercase;
 }
 
