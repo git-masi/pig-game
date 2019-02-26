@@ -11,7 +11,9 @@
 // **Maybe give some statistics like what are the chances you don't roll a 1 5x in a row, or roll all 1s
 
 
-var score, roundScore, activePlayer, dice, sum;
+const PLAYER1 = document.getElementById('player1');
+const PLAYER2 = document.getElementById('player2');
+let score, roundScore, activePlayer, dice, sum;
 
 score = [0, 0];
 roundScore = 0;
@@ -49,8 +51,8 @@ document.getElementsByClassName('new-game')[0].addEventListener('click', functio
     document.getElementById('score-1').textContent = 0;
     document.getElementById('global-score-0').textContent = 0;
     document.getElementById('global-score-1').textContent = 0;
-    document.getElementById('player2').classList.remove('active-player-bg');
-    document.getElementById('player1').classList.add('active-player-bg');
+    PLAYER2.classList.remove('active-player-bg');
+    PLAYER1.classList.add('active-player-bg');
     
     document.getElementsByClassName('roll-dice')[0].disable = false;
     document.getElementsByClassName('hold')[0].disable = false;
@@ -70,8 +72,12 @@ document.getElementsByClassName('roll-dice')[0].addEventListener('click', functi
         // activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
         if (activePlayer === 0){
             activePlayer = 1;
-        } else {
+            PLAYER1.classList.remove('active-player-bg');
+            PLAYER2.classList.add('active-player-bg');
+          } else {
             activePlayer = 0;
+            PLAYER2.classList.remove('active-player-bg');
+            PLAYER1.classList.add('active-player-bg');
         }
     } else {
         diceDisplay(dice);
@@ -94,8 +100,8 @@ document.getElementsByClassName('hold')[0].addEventListener('click', function(){
         } else {
             document.getElementById('global-score-0').textContent = score[0];
             document.getElementById('score-' + activePlayer).textContent = 0;
-            document.getElementById('player1').classList.remove('active-player-bg');
-            document.getElementById('player2').classList.add('active-player-bg');
+            PLAYER1.classList.remove('active-player-bg');
+            PLAYER2.classList.add('active-player-bg');
             activePlayer = 1;
         }
     } else {
@@ -109,8 +115,8 @@ document.getElementsByClassName('hold')[0].addEventListener('click', function(){
         } else {
             document.getElementById('global-score-1').textContent = score[1];
             document.getElementById('score-' + activePlayer).textContent = 0;
-            document.getElementById('player2').classList.remove('active-player-bg');
-            document.getElementById('player1').classList.add('active-player-bg');
+            PLAYER2.classList.remove('active-player-bg');
+            PLAYER1.classList.add('active-player-bg');
             activePlayer = 0;
         }
     }
