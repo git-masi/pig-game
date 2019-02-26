@@ -6,7 +6,8 @@ html {
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
@@ -17,10 +18,19 @@ body {
 .page-container {
   height: 100vh;
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   
   background: url(assets/background-image-tower-skyline.jpg) no-repeat center center/cover;
 }
@@ -35,20 +45,40 @@ body {
   max-height: 900px;
   width: 75%;
   max-width: 1200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background-color: #FFFDFD;
 }
 
 .player {
-  flex: 1 1;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1;
+          flex: 1 1;
   text-align: center;
 
+  display: -webkit-box;
+
+  display: -ms-flexbox;
+
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .player h2 {
@@ -73,10 +103,20 @@ body {
   background-color: #EE8167;
   border-radius: 10%;
 
+  display: -webkit-box;
+
+  display: -ms-flexbox;
+
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .round-score h4 {
@@ -99,42 +139,64 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 
   height: 50%;
 
   text-align: center;
 
+  display: -webkit-box;
+
+  display: -ms-flexbox;
+
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .dice-display {
   font-size: 8rem;
   color: #CC5887;
   /* color: #cecece; */
-  filter: drop-shadow(0 1rem 1.5rem rgba(202, 90, 62, 0.7));
+  -webkit-filter: drop-shadow(0 1rem 1.5rem rgba(202, 90, 62, 0.7));
+          filter: drop-shadow(0 1rem 1.5rem rgba(202, 90, 62, 0.7));
 }
 
 .dice-display i {
-  animation: spin 400ms linear 1;
-  animation-play-state: paused;
+  -webkit-animation: spin 400ms linear 1;
+          animation: spin 400ms linear 1;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
 }
 
 .dice-display i:hover {
-  animation-play-state: running;
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
 }
 
 .game-controls > :not(.dice-display) {
   color: #FFFDFD;
+  -webkit-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
 }
 
 .game-controls > :not(.dice-display):hover {
-  transform: translateY(-.5rem);
-  box-shadow: 0 .7rem .7rem rgba(202, 90, 62, 0.3);
+  -webkit-transform: translateY(-.5rem);
+      -ms-transform: translateY(-.5rem);
+          transform: translateY(-.5rem);
+  -webkit-box-shadow: 0 .7rem .7rem rgba(202, 90, 62, 0.3);
+          box-shadow: 0 .7rem .7rem rgba(202, 90, 62, 0.3);
 }
 
 .game-controls button {
@@ -150,15 +212,23 @@ body {
 }
 
 .game-controls > :not(.dice-display):active {
-  transform: translateY(-.2rem);
-  box-shadow: 0 .4rem .4rem rgba(202, 90, 62, 0.5);
+  -webkit-transform: translateY(-.2rem);
+      -ms-transform: translateY(-.2rem);
+          transform: translateY(-.2rem);
+  -webkit-box-shadow: 0 .4rem .4rem rgba(202, 90, 62, 0.5);
+          box-shadow: 0 .4rem .4rem rgba(202, 90, 62, 0.5);
 }
     
 button:focus {
   outline:0;
 }
 
+@-webkit-keyframes spin{
+  0% {-webkit-transform: rotate(0deg);transform: rotate(0deg)}
+  100% {-webkit-transform: rotate(1turn);transform: rotate(1turn)}
+}
+
 @keyframes spin{
-  0% {transform: rotate(0deg)}
-  100% {transform: rotate(1turn)}
+  0% {-webkit-transform: rotate(0deg);transform: rotate(0deg)}
+  100% {-webkit-transform: rotate(1turn);transform: rotate(1turn)}
 }
